@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clivexa - Agencia de Redes Sociales</title>
+    <link rel="icon" type="image/x-icon" href="Imagen/clivexa.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <style>
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .animate-fadeIn.delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .animate-fadeIn.delay-400 {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-white text-gray-900 fixed w-full z-50 shadow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <img class="h-20" src="Imagen/logo_clivexatran.png" alt="Clivexa Logo">
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="#servicios" class="hover:text-yellow-400 transition">Servicios</a>
+                    <a href="#paquetes" class="hover:text-yellow-400 transition">Paquetes</a>
+                    <a href="#contacto" class="hover:text-yellow-400 transition">Contacto</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-900 focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="#servicios" class="block px-4 py-2 hover:bg-gray-100">Servicios</a>
+            <a href="#paquetes" class="block px-4 py-2 hover:bg-gray-100">Paquetes</a>
+            <a href="#contacto" class="block px-4 py-2 hover:bg-gray-100">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+        class="relative min-h-[80vh] py-16 flex flex-col justify-center items-center text-center px-4 md:h-screen md:py-0">
+        <!-- GIF de fondo -->
+        <div class="absolute inset-0 flex justify-center items-center z-0">
+            <img src="Imagen/negocio.gif" alt="Fondo animado" class="w-full max-h-full object-contain mx-auto 
+                max-w-lg md:max-w-xl lg:max-w-2xl">
+            <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
+        </div>
+
+        <!-- Contenido -->
+        <div class="relative z-20 text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fadeIn">Impulsa tu marca con Clivexa</h1>
+            <p class="text-lg md:text-2xl mb-6 animate-fadeIn delay-200">
+                Gestión profesional de redes sociales para empresas y emprendedores.
+            </p>
+            <a href="portafolio.pdf" target="_blank"
+                class="bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition animate-bounce">
+                Ver Portafolio
+            </a>
+
+        </div>
+    </section>
+    <!-- Nueva sección: Quiénes Somos, Misión, Visión y Objetivo -->
+    <section id="quienes-somos" class="py-10 md:py-20 bg-gray-100 text-center px-4">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 md:mb-12 animate-fadeIn">Quiénes Somos</h2>
+
+        <p class="text-base md:text-xl text-gray-700 max-w-3xl mx-auto mb-10 md:mb-16 animate-fadeIn delay-200">
+            En Clivexa somos una agencia especializada en <strong>gestión profesional de redes sociales</strong>,
+            ayudando a empresas
+            y emprendedores a fortalecer su presencia digital y conectar con su audiencia de manera efectiva.
+        </p>
+
+        <!-- Misión -->
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8 max-w-6xl mx-auto">
+
+            <div
+                class="bg-blue-500 text-white p-5 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:scale-105 animate-fadeIn flex flex-col justify-center items-center text-center aspect-square">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-12 md:w-12 mb-2 md:mb-4" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12h6m-3-3v6m2 5a9 9 0 11-4-0" />
+                </svg>
+                <h3 class="text-xl md:text-2xl font-semibold mb-1 md:mb-2">Misión</h3>
+                <p class="text-white text-center text-sm md:text-base px-1">
+                    Optimizar la presencia de nuestros clientes en redes sociales mediante estrategias de contenido,
+                    planificación y monitoreo constante.
+                </p>
+            </div>
+
+            <!-- Visión -->
+            <div
+                class="bg-green-500 text-white p-5 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:scale-105 animate-fadeIn delay-200 flex flex-col justify-center items-center text-center aspect-square">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-12 md:w-12 mb-2 md:mb-4" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                <h3 class="text-xl md:text-2xl font-semibold mb-1 md:mb-2">Visión</h3>
+                <p class="text-white text-center text-sm md:text-base px-1">
+                    Ser la agencia líder en gestión de redes sociales, reconocida por ayudar a negocios a crecer y
+                    mantener una comunidad comprometida.
+                </p>
+            </div>
+
+            <!-- Objetivo -->
+            <div
+                class="bg-yellow-400 text-blue-900 p-5 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:scale-105 animate-fadeIn delay-400 flex flex-col justify-center items-center text-center aspect-square">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-12 md:w-12 mb-2 md:mb-4" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 8c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
+                </svg>
+                <h3 class="text-xl md:text-2xl font-semibold mb-1 md:mb-2">Objetivo</h3>
+                <p class="text-blue-900 text-center text-sm md:text-base px-1">
+                    Impulsar marcas a través de estrategias de redes sociales que incrementen su alcance, interacción y
+                    fidelidad de clientes.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-20 bg-gray-100 text-center">
+        <h2 class="text-4xl font-bold mb-12 animate-fadeIn">Nuestros Servicios Profesionales</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+            <!-- Gestión Integral de Redes sociales -->
+            <div
+                class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition transform hover:scale-105 animate-fadeIn">
+                <img src="Imagen/gestion_redes.png" alt="Gestión de Redes" class="w-25 h-25 mx-auto mb-4">
+                <h3 class="text-2xl font-semibold mb-2">Gestión Integral de Redes sociales</h3>
+                <p class="text-gray-700 text-sm md:text-base">
+                    Diseñamos, planificamos y ejecutamos estrategias completas para tus redes sociales, incluyendo
+                    creación de contenido, calendario editorial y monitoreo constante para maximizar tu presencia
+                    digital.
+                </p>
+            </div>
+
+            <!-- Publicidad Digital Estratégica -->
+            <div
+                class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition transform hover:scale-105 animate-fadeIn delay-200">
+                <img src="Imagen/publicidad_digital.png" alt="Publicidad Digital" class="w-25 h-25 mx-auto mb-4">
+                <h3 class="text-2xl font-semibold mb-2">Publicidad Digital Estratégica</h3>
+                <p class="text-gray-700 text-sm md:text-base">
+                    Creamos campañas segmentadas y efectivas en Facebook, Instagram para aumentar tu
+                    visibilidad, generar leads de calidad y potenciar tu negocio en línea.
+                </p>
+            </div>
+
+            <!-- Análisis y Optimización -->
+            <div
+                class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition transform hover:scale-105 animate-fadeIn delay-400">
+                <img src="Imagen/analisis_reportes.png" alt="Análisis y Reportes" class="w-25 h-25 mx-auto mb-4">
+                <h3 class="text-2xl font-semibold mb-2">Análisis y Optimización</h3>
+                <p class="text-gray-700 text-sm md:text-base">
+                    Ofrecemos informes detallados y métricas clave de tus redes sociales, identificando oportunidades de
+                    crecimiento y optimizando las estrategias para alcanzar tus objetivos de manera eficiente.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Paquete de clivexa-->
+
+    <section id="paquetes" class="py-12 md:py-20 bg-white text-center px-4">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 md:mb-12 animate-fadeIn">🚀 Paquetes Clivexa</h2>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8 max-w-6xl mx-auto">
+
+            <!-- Paquete de Inicio Clivexa-->
+            <div
+                class="bg-green-700 text-white p-4 md:p-6 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition flex flex-col items-center">
+                <h3 class="text-xl md:text-2xl font-semibold mb-3">🌱 Inicio Clivexa</h3>
+                <p class="mb-3 text-sm md:text-base">Para negocios que recién comienzan en redes.</p>
+
+                <ul class="list-disc list-inside text-left mb-4 space-y-1 text-sm">
+                    <li>8 publicaciones al mes (2 por semana)</li>
+                    <li>Fotos proporcionadas por el cliente</li>
+                    <li>Diseño básico con edición de imágenes y textos</li>
+                    <li>
+                        Publicación en Facebook e Instagram
+                        <span class="inline-flex space-x-1 ml-1">
+                            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </li>
+                    <li>Reporte básico de resultados</li>
+                    <li>Respuesta básica a mensajes y comentarios</li>
+                </ul>
+                <p class="text-xl font-bold mb-4">💰 $499.99 MXN / mes</p>
+                <a href="" target="_blank"
+                    class="bg-yellow-400 text-blue-900 px-6 py-2 rounded hover:bg-yellow-500 transition inline-block">
+                    Contratar
+                </a>
+            </div>
+
+            <!-- Paquete de Impulso Clivexa-->
+            <div
+                class="bg-blue-700 text-white p-4 md:p-6 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition flex flex-col items-center">
+                <h3 class="text-xl md:text-2xl font-semibold mb-3">🌟 Impulso Clivexa</h3>
+                <p class="mb-3 text-sm md:text-base">Para negocios que quieren mejorar su presencia visual y engagement.
+                </p>
+                <ul class="list-disc list-inside text-left mb-4 space-y-1 text-sm">
+                    <li>12 publicaciones al mes (3 por semana)</li>
+                    <li>Fotos proporcionadas por el cliente</li>
+                    <li>Diseño profesional con branding (colores y estilo definido)</li>
+                    <li>
+                        Publicación en Facebook e Instagram
+                        <span class="inline-flex space-x-1 ml-1">
+                            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </li>
+                    <li>4 reels o historias dinámicas al mes</li>
+                    <li>Reporte básico de resultados</li>
+                    <li>Respuesta activa a mensajes y comentarios</li>
+
+                </ul>
+                <p class="text-xl font-bold mb-4">💰 $899.99 MXN / mes</p>
+                <a href="" target="_blank"
+                    class="bg-yellow-400 text-blue-900 px-6 py-2 rounded hover:bg-yellow-500 transition inline-block">
+                    Contratar
+                </a>
+            </div>
+
+            <!-- Paquete de Expansión Clivexa-->
+            <div
+                class="bg-purple-800 text-white p-4 md:p-6 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition flex flex-col items-center">
+                <h3 class="text-xl md:text-2xl font-semibold mb-3">🔥 Expansión Clivexa</h3>
+                <p class="mb-3 text-sm md:text-base">Para negocios que buscan impacto profesional y posicionamiento.</p>
+                <ul class="list-disc list-inside text-left mb-4 space-y-1 text-sm">
+                    <li>16–20 publicaciones al mes (4–5 por semana)</li>
+                    <li>Sesión fotográfica profesional</li>
+                    <li>Plantillas personalizadas con el branding del negocio</li>
+                    <li>
+                        Publicación en Facebook e Instagram
+                        <span class="inline-flex space-x-1 ml-1">
+                            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+
+                        </span>
+                    </li>
+                    <li>6 reels o historias creativas al mes</li>
+                    <li>Copywriting profesional para cada publicación</li>
+                    <li>Reporte mensual detallado con métricas y recomendaciones</li>
+                    <li>Respuesta activa a mensajes y comentarios</li>
+                </ul>
+                <p class="text-xl font-bold mb-4">💰 $1,499.99 MXN / mes</p>
+                <a href="" target="_blank"
+                    class="bg-yellow-400 text-blue-900 px-6 py-2 rounded hover:bg-yellow-500 transition inline-block">
+                    Contratar
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-6 text-center">
+        <p class="mb-4">© 2025 Clivexa. Todos los derechos reservados.</p>
+
+        <div class="flex justify-center space-x-6">
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/profile.php?id=61580817519322" target="_blank"
+                class="hover:text-blue-500 transition">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.988H7.898v-2.89h2.54V9.845c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.196 2.238.196v2.465h-1.26c-1.243 0-1.63.772-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 17 22 12z" />
+                </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/clivexa_/" target="_blank" class="hover:text-pink-500 transition">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M349.33 69.33H162.67C103.44 69.33 56 116.77 56 176v186.67c0 59.23 47.44 106.67 106.67 106.67h186.67c59.23 0 106.67-47.44 106.67-106.67V176c0-59.23-47.44-106.67-106.67-106.67zm72 292.67c0 39.7-32.3 72-72 72H162.67c-39.7 0-72-32.3-72-72V176c0-39.7 32.3-72 72-72h186.67c39.7 0 72 32.3 72 72v186z" />
+                    <path
+                        d="M256 164c-51.91 0-92 40.09-92 92s40.09 92 92 92 92-40.09 92-92-40.09-92-92-92zm0 152c-33.14 0-60-26.86-60-60s26.86-60 60-60 60 26.86 60 60-26.86 60-60 60z" />
+                    <circle cx="390" cy="122" r="26" />
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+
+    <!-- Script para menú móvil -->
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+
+</html>
