@@ -2,374 +2,585 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clivexa - Agencia de Redes Sociales</title>
-    <link rel="icon" type="image/x-icon" href="Imagen/clivexa.ico">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clivexa — Agencia Creativa Digital Integral</title>
+    <link rel="icon" type="image/x-icon" href="Imagen/clivexa.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-pVQ3+vhH+6ytSxgNydf1+BReH5UJ3X+6aRZIQp3JgT9xqNl6eQ1gK6Jw6xIk7ZxgvsF0LgqFph6z60+1lZ9+1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CDN (production: compile into your build) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clivexablue: '#06205c',
+                        clivexayellow: '#F6C446',
+                        clivexepurple: '#7b3ff0'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
+        /* Small animations not provided by Tailwind */
+        @keyframes floatUp {
+            from {
+                transform: translateY(12px);
+                opacity: 0
             }
 
-            100% {
-                opacity: 1;
+            to {
                 transform: translateY(0);
+                opacity: 1
             }
         }
 
-        .animate-fadeIn {
-            animation: fadeIn 1s ease forwards;
+        .animate-fade {
+            animation: floatUp .9s ease both
         }
 
-        .animate-fadeIn.delay-200 {
-            animation-delay: 0.2s;
+        /* Subtle glass card */
+        .glass {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(6px);
         }
 
-        .animate-fadeIn.delay-400 {
-            animation-delay: 0.4s;
+        /* Respect PDF-friendly fonts when printing */
+        @media print {
+            .no-print {
+                display: none
+            }
         }
     </style>
 </head>
 
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-gradient-to-b from-white via-slate-50 to-slate-100 text-clivexablue font-sans leading-relaxed">
 
-    <!-- Navbar -->
-    <nav class="bg-white text-gray-900 fixed w-full z-50 shadow">
+    <!-- NAVBAR -->
+    <header class="fixed w-full z-50 top-0 left-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="flex items-center gap-3">
+                    <img src="Imagen/Nuevo_clivexa_tra1.png" alt="Clivexa" class="h-14 w-auto object-contain">
+                    <div class="hidden sm:block">
+                        <h1 class="text-lg font-bold">­­­ </h1>
+                        <p class="text-xs text-slate-500 -mt-1">Agencia Creativa Digital Boutique</p>
+                    </div>
+                </a>
 
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <img class="h-20" src="Imagen/logo_clivexatran.png" alt="Clivexa Logo">
-                </div>
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <a href="#servicios" class="hover:text-clivexayellow transition">Servicios</a>
+                    <a href="#proyectos" class="hover:text-clivexayellow transition">Proyectos</a>
+                    <a href="#testimonios" class="hover:text-clivexayellow transition">Testimonios</a>
+                    <a href="#paquetes" class="hover:text-clivexayellow transition">Paquetes</a>
+                    <a href="#contacto"
+                        class="bg-clivexayellow text-clivexablue px-4 py-2 rounded-lg font-semibold hover:brightness-95 transition">Contacto</a>
+                </nav>
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-6">
-                    <a href="#servicios" class="hover:text-yellow-400 transition">Servicios</a>
-                    <a href="#paquetes" class="hover:text-yellow-400 transition">Paquetes</a>
-                    <a href="#contacto" class="hover:text-yellow-400 transition">Contacto</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="menu-btn" class="text-gray-900 focus:outline-none">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
+                <!-- Mobile -->
+                <div class="md:hidden">
+                    <button id="btn-mobile" aria-label="Abrir menú" class="p-2 rounded-md bg-white shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-clivexablue" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16"></path>
+                                d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white">
-            <a href="#servicios" class="block px-4 py-2 hover:bg-gray-100">Servicios</a>
-            <a href="#paquetes" class="block px-4 py-2 hover:bg-gray-100">Paquetes</a>
-            <a href="#contacto" class="block px-4 py-2 hover:bg-gray-100">Contacto</a>
+        <!-- mobile menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-6 space-y-3">
+                <a href="#servicios" class="block">Servicios</a>
+                <a href="#proyectos" class="block">Proyectos</a>
+                <a href="#testimonios" class="block">Testimonios</a>
+                <a href="#paquetes" class="block">Paquetes</a>
+                <a href="#contacto" class="block">Contacto</a>
+            </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section
-        class="relative min-h-[80vh] py-16 flex flex-col justify-center items-center text-center px-4 md:h-screen md:py-0">
-        <!-- GIF de fondo -->
-        <div class="absolute inset-0 flex justify-center items-center z-0">
-            <img src="Imagen/negocio.gif" alt="Fondo animado" class="w-full max-h-full object-contain mx-auto 
-                max-w-lg md:max-w-xl lg:max-w-2xl">
-            <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
-        </div>
+    <!-- HERO -->
+    <main class="pt-28">
+        <section class="relative overflow-hidden">
+            <!-- Decorative gradient shapes -->
+            <div
+                class="absolute -left-20 -top-20 w-96 h-96 rounded-full bg-gradient-to-br from-clivexepurple to-clivexablue opacity-20 blur-3xl">
+            </div>
+            <div
+                class="absolute right-0 top-40 w-72 h-72 rounded-full bg-gradient-to-br from-clivexayellow to-clivexepurple opacity-20 blur-3xl">
+            </div>
 
-        <!-- Contenido -->
-        <div class="relative z-20 text-white">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fadeIn">Impulsa tu marca con Clivexa</h1>
-            <p class="text-lg md:text-2xl mb-6 animate-fadeIn delay-200">
-                Gestión profesional de redes sociales para empresas y emprendedores.
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+                <!-- Left: content -->
+                <div class="relative z-10 space-y-6">
+                    <h2 class="text-3xl md:text-5xl font-extrabold leading-tight text-clivexablue animate-fade">Impulsa
+                        tu identidad digital</h2>
+                    <p class="text-lg md:text-xl text-slate-600 max-w-xl">Diseño profesional de logotipos, identidad
+                        visual, páginas web, banners y campañas visuales. Creamos experiencias digitales que conectan y
+                        convierten.</p>
+
+                    <div class="flex gap-4 mt-4">
+                        <a href="Clivexa Agencia Creativa Digital Boutique.pdf" target="_blank"
+                            class="inline-flex items-center gap-2 bg-clivexayellow text-clivexablue px-5 py-3 rounded-lg font-semibold hover:shadow-lg transition">Ver
+                            Portafolio</a>
+                        <a href="#contacto"
+                            class="inline-flex items-center gap-2 border border-clivexablue text-clivexablue px-5 py-3 rounded-lg hover:bg-clivexablue hover:text-white transition">Contáctanos</a>
+                    </div>
+
+                    <!-- Service quick list with icons -->
+                    <ul class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-md">
+                        <li class="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm">
+                            <span class="text-2xl">🎨</span>
+                            <span class="text-sm">Diseño de logotipos</span>
+                        </li>
+                        <li class="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm">
+                            <span class="text-2xl">🏷️</span>
+                            <span class="text-sm">Branding</span>
+                        </li>
+                        <li class="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm">
+                            <span class="text-2xl">💻</span>
+                            <span class="text-sm">Web & Desarrollo</span>
+                        </li>
+                        <li class="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm">
+                            <span class="text-2xl">📱</span>
+                            <span class="text-sm">Apps Móviles</span>
+                        </li>
+                        <li class="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm">
+                            <span class="text-2xl">📢</span>
+                            <span class="text-sm">Banners & Anuncios</span>
+                        </li>
+                        <li class="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm">
+                            <span class="text-2xl">💬</span>
+                            <span class="text-sm">Gestión de RRSS</span>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <!-- Right: mockup / image -->
+                <div class="flex justify-center md:justify-end">
+                    <div class="w-full max-w-md glass rounded-2xl p-6 shadow-xl">
+                        <img src="Imagen/negocio.gif" alt="Mockup" class="w-full rounded-lg mb-4 object-cover">
+                        <h3 class="text-lg font-semibold text-clivexablue">Proyectos con impacto visual</h3>
+                        <p class="text-sm text-slate-600 mt-1">Mira ejemplos de branding, sitios web y anuncios creados
+                            para marcas reales.</p>
+                        <div class="mt-4 flex gap-2">
+                            <a href="#proyectos"
+                                class="text-sm px-4 py-2 border rounded hover:bg-clivexayellow hover:text-clivexablue transition">Ver
+                                proyectos</a>
+                            <a href="#paquetes"
+                                class="text-sm px-4 py-2 border rounded hover:bg-clivexablue hover:text-white transition">Paquetes</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SERVICIOS -->
+        <section id="servicios" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-8">Nuestros servicios</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                    <article class="p-6 rounded-2xl border hover:shadow-lg transition">
+                        <div class="text-3xl">🎨</div>
+                        <h3 class="text-xl font-semibold mt-3">Diseño de logotipos</h3>
+                        <p class="text-sm text-slate-600 mt-2">Creamos identidades únicas que reflejan la esencia de tu
+                            marca.</p>
+                    </article>
+
+                    <article class="p-6 rounded-2xl border hover:shadow-lg transition">
+                        <div class="text-3xl">🏷️</div>
+                        <h3 class="text-xl font-semibold mt-3">Diseño de branding</h3>
+                        <p class="text-sm text-slate-600 mt-2">Desarrollamos la identidad visual completa: paleta,
+                            tipografía, variantes de logo y manual de uso.</p>
+                    </article>
+
+                    <article class="p-6 rounded-2xl border hover:shadow-lg transition">
+                        <div class="text-3xl">💻</div>
+                        <h3 class="text-xl font-semibold mt-3">Diseño y desarrollo web</h3>
+                        <p class="text-sm text-slate-600 mt-2">Sitios modernos, responsivos y optimizados para destacar
+                            tu presencia digital.</p>
+                    </article>
+
+                    <article class="p-6 rounded-2xl border hover:shadow-lg transition">
+                        <div class="text-3xl">📱</div>
+                        <h3 class="text-xl font-semibold mt-3">Diseño de aplicaciones móviles</h3>
+                        <p class="text-sm text-slate-600 mt-2">Diseños de interfaces (UI/UX) atractivos y funcionales
+                            para experiencias móviles intuitivas.</p>
+                    </article>
+
+                    <article class="p-6 rounded-2xl border hover:shadow-lg transition">
+                        <div class="text-3xl">📢</div>
+                        <h3 class="text-xl font-semibold mt-3">Diseño de banners y anuncios web</h3>
+                        <p class="text-sm text-slate-600 mt-2">Creatividades visuales para campañas digitales enfocadas
+                            en visibilidad y conversión.</p>
+                    </article>
+
+                    <article class="p-6 rounded-2xl border hover:shadow-lg transition">
+                        <div class="text-3xl">💬</div>
+                        <h3 class="text-xl font-semibold mt-3">Gestión de redes sociales</h3>
+                        <p class="text-sm text-slate-600 mt-2">Planificación, diseño y ejecución de contenido
+                            profesional para redes sociales.</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- PROYECTOS (placeholder) -->
+        <section id="proyectos" class="py-16 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-8">Proyectos destacados</h2>
+                <p class="text-center text-slate-600 mb-8 max-w-2xl mx-auto">
+                    Descubre nuestros proyectos destacados: sitios web, branding y campañas digitales desarrolladas para
+                    clientes reales, mostrando creatividad, funcionalidad y resultados efectivos.
+                </p>
+
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center">
+                    <a href="https://codeliga.site/" target="_blank"
+                        class="block rounded-2xl overflow-hidden shadow-lg bg-white mx-auto max-w-sm hover:scale-105 transition-transform">
+                        <img src="Imagen/NUEVO_CODELIGA_VBLANCO-removebg.png" alt="Proyecto 1"
+                            class="w-full h-64 object-contain p-4 bg-slate-50">
+                        <div class="p-4 text-center">
+                            <h4 class="font-semibold">Codeliga</h4>
+                            <p class="text-sm text-slate-600">Página web y diseño de banners y anuncios web</p>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TESTIMONIOS -->
+        <section id="testimonios" class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold mb-6">Lo que dicen nuestros clientes</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    <figure class="p-6 rounded-2xl border text-left">
+                        <blockquote class="text-slate-700">“Clivexa entendió perfectamente la esencia de mi marca. El
+                            logo y la identidad visual quedaron increíbles. ¡Profesionales y
+                            muy creativos!”</blockquote>
+                        <figcaption class="mt-4 text-sm text-slate-500">— David Gómez, Emprendedor</figcaption>
+                    </figure>
+
+                    <figure class="p-6 rounded-2xl border text-left">
+                        <blockquote class="text-slate-700">“El equipo de Clivexa es muy atento y comprometido. Me
+                            encantó la rapidez con la que entregaron mi proyecto de
+                            banners y anuncios.”</blockquote>
+                        <figcaption class="mt-4 text-sm text-slate-500">— Ricardo Osiris, Tienda Online</figcaption>
+                    </figure>
+
+                    <figure class="p-6 rounded-2xl border text-left">
+                        <blockquote class="text-slate-700">“Las creatividades y anuncios aumentaron nuestro alcance.
+                            Recomendados para proyectos con visión digital.”</blockquote>
+                        <figcaption class="mt-4 text-sm text-slate-500">— María López, Marketing</figcaption>
+                    </figure>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PAQUETES (simplified) -->
+        <!-- PAQUETES INDIVIDUALES -->
+        <section id="paquetes" class="py-16 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-8">Nuestros Servicios y Paquetes</h2>
+                <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
+                    Cada servicio de Clivexa se ofrece como paquete independiente. Los servicios estándar incluyen
+                    precios aproximados, mientras que los proyectos personalizados, como aplicaciones móviles, se
+                    cotizan según tus necesidades.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+                    <!-- Diseño de logotipos -->
+                    <div class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
+                        <div class="text-3xl mb-2">🎨</div>
+                        <h3 class="text-xl font-semibold mt-2">Diseño de logotipos</h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            Incluye una o dos propuestas de logotipo, hasta dos rondas de revisión y entrega en formatos
+                            estándar (PNG, JPG, PDF).
+                            No incluye estrategia de marca, manual de identidad ni elementos adicionales.
+                        </p>
+                        <p class="mt-4 font-bold">Desde $399 MXN</p>
+                        <a href="#contacto"
+                            class="mt-4 inline-block px-4 py-2 bg-clivexayellow rounded text-clivexablue font-semibold">
+                            Contratar
+                        </a>
+                    </div>
+
+
+                    <!-- Diseño de branding -->
+                    <div class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
+                        <div class="text-3xl mb-2">🏷️</div>
+                        <h3 class="text-xl font-semibold mt-2">Diseño de branding</h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            Desarrollo completo de identidad visual: paleta de colores, tipografía, variantes de logo y
+                            manual de uso.
+                        </p>
+                        <p class="text-xs text-slate-500 mt-1">
+                            El precio varía según la complejidad y necesidades de tu marca.
+                        </p>
+                        <p class="mt-4 font-bold">Precio personalizado según proyecto</p>
+                        <a href="#contacto"
+                            class="mt-4 inline-block px-4 py-2 bg-clivexayellow rounded text-clivexablue font-semibold">
+                            Contratar
+                        </a>
+                    </div>
+
+
+                    <!-- Diseño y desarrollo web -->
+                    <div class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
+                        <div class="text-3xl mb-2">💻</div>
+                        <h3 class="text-xl font-semibold mt-2">Diseño y desarrollo web</h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            Páginas web modernas, responsivas y optimizadas para ofrecer una excelente experiencia de
+                            usuario.
+                        </p>
+                        <p class="text-xs text-slate-500 mt-1">
+                            Incluye hosting y 1 año de mantenimiento gratis.
+                        </p>
+                        <p class="mt-4 font-bold">Desde $2,999 MXN</p>
+                        <a href="#contacto"
+                            class="mt-4 inline-block px-4 py-2 bg-clivexayellow rounded text-clivexablue font-semibold">
+                            Contratar
+                        </a>
+                    </div>
+
+
+                    <!-- Diseño de aplicaciones móviles (personalizado) -->
+                    <div class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
+                        <div class="text-3xl mb-2">📱</div>
+                        <h3 class="text-xl font-semibold mt-2">Diseño de apps móviles</h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            Interfaces atractivas y funcionales (UI/UX) para aplicaciones móviles. El precio depende de
+                            la complejidad y funcionalidades del proyecto.
+                        </p>
+                        <p class="text-xs text-slate-500 mt-1">
+                            Aplicaciones básicas: $30,000–$60,000 MXN. Intermedias: $60,000–$80,000 MXN. Avanzadas:
+                            desde $90,000 MXN.
+                        </p>
+                        <p class="mt-4 font-bold">Precio personalizado según proyecto</p>
+                        <a href="#contacto"
+                            class="mt-4 inline-block px-4 py-2 bg-clivexayellow rounded text-clivexablue font-semibold">
+                            Contratar
+                        </a>
+                    </div>
+
+                    <!-- Creación de banners y anuncios web -->
+                    <div class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
+                        <div class="text-3xl mb-2">📢</div>
+                        <h3 class="text-xl font-semibold mt-2">Banners y anuncios web</h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            Creatividades visuales para campañas digitales enfocadas en aumentar visibilidad y
+                            conversiones.
+                            Un diseño gráfico simple, con texto e imágenes, en un formato específico (por ejemplo, un
+                            banner para Google Ads o una imagen para Facebook).
+                        </p>
+                        <p class="mt-4 font-bold">Desde $499 MXN</p>
+                        <a href="#contacto"
+                            class="mt-4 inline-block px-4 py-2 bg-clivexayellow rounded text-clivexablue font-semibold">
+                            Contratar
+                        </a>
+                    </div>
+
+
+                    <!-- Gestión de redes sociales -->
+                    <div class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
+                        <div class="text-3xl mb-2">💬</div>
+                        <h3 class="text-xl font-semibold mt-2">Gestión de redes sociales</h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            16–20 publicaciones/mes, fotos y plantillas 📸, reels y stories 🎬, publicaciones en
+                            <i class="fab fa-instagram text-pink-500"></i> Instagram &
+                            <i class="fab fa-facebook text-blue-600"></i> Facebook, copywriting profesional y reporte
+                            mensual.
+                        </p>
+                        <p class="mt-4 font-bold">Desde $1,599 MXN / mes</p>
+                        <a href="#contacto"
+                            class="mt-4 inline-block px-4 py-2 bg-clivexayellow rounded text-clivexablue font-semibold">
+                            Contratar
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p class="text-slate-600">
+                    ¿Quieres un paquete personalizado o más información sobre precios?
+                    <a href="#contacto" class="text-clivexablue font-semibold underline hover:text-clivexayellow">
+                        Contáctanos aquí
+                    </a>
+                    y te asesoramos.
+                </p>
+            </div>
+        </section>
+
+
+
+        <!-- CONTACTO -->
+        <section id="contacto" class="py-16 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="flex flex-col justify-center">
+                    <h2 class="text-2xl font-bold mb-2">Hablemos de tu proyecto</h2>
+                    <p class="text-slate-600 mb-6">Cuéntanos qué necesitas y te proponemos una solución creativa y a
+                        medida.</p>
+
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li>📍 Ciudad del Carmen, Campeche, México</li>
+                        <li>✉️ clivexaoficial@gmail.com</li>
+                        <li>📲 +52 9381520455 (WhatsApp)</li>
+                    </ul>
+                </div>
+
+                <!-- Formulario -->
+                <form id="contact-form" class="space-y-4 bg-slate-50 p-6 rounded-2xl shadow">
+                    <div>
+                        <label class="block text-sm mb-1">Nombre</label>
+                        <input type="text" name="name" placeholder="Tu nombre" class="w-full px-4 py-2 border rounded"
+                            required />
+                    </div>
+                    <div>
+                        <label class="block text-sm mb-1">Correo</label>
+                        <input type="email" name="email" placeholder="tu@correo.com"
+                            class="w-full px-4 py-2 border rounded" required />
+                    </div>
+                    <div>
+                        <label class="block text-sm mb-1">Servicios de interés</label>
+                        <select name="servicio" class="w-full px-4 py-2 border rounded" required>
+                            <option>Diseño de logotipos</option>
+                            <option>Branding</option>
+                            <option>Diseño y desarrollo web</option>
+                            <option>Diseño de apps móviles</option>
+                            <option>Banners y anuncios</option>
+                            <option>Gestión de redes sociales</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm mb-1">Mensaje</label>
+                        <textarea name="message" rows="4" placeholder="Cuéntanos sobre tu proyecto"
+                            class="w-full px-4 py-2 border rounded" required></textarea>
+                    </div>
+                    <div>
+                        <button type="submit"
+                            class="w-full bg-clivexayellow text-clivexablue px-4 py-2 rounded font-semibold">
+                            Enviar mensaje
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-clivexablue text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="mb-2">© <span id="year"></span> Clivexa. Todos los derechos reservados.</p>
+            <p class="text-sm text-slate-200 mb-4">
+                Diseño de logotipos · Branding · Páginas web · Banners · Gestión de redes
             </p>
-            <a href="portafolio.pdf" target="_blank"
-                class="bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition animate-bounce">
-                Ver Portafolio
-            </a>
 
-        </div>
-    </section>
-    <!-- Nueva sección: Quiénes Somos, Misión, Visión y Objetivo -->
-    <section id="quienes-somos" class="py-10 md:py-20 bg-gray-100 text-center px-4">
-        <h2 class="text-3xl md:text-4xl font-bold mb-8 md:mb-12 animate-fadeIn">Quiénes Somos</h2>
-
-        <p class="text-base md:text-xl text-gray-700 max-w-3xl mx-auto mb-10 md:mb-16 animate-fadeIn delay-200">
-            En Clivexa somos una agencia especializada en <strong>gestión profesional de redes sociales</strong>,
-            ayudando a empresas
-            y emprendedores a fortalecer su presencia digital y conectar con su audiencia de manera efectiva.
-        </p>
-
-        <!-- Misión -->
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8 max-w-6xl mx-auto">
-
-            <div
-                class="bg-blue-500 text-white p-5 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:scale-105 animate-fadeIn flex flex-col justify-center items-center text-center aspect-square">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-12 md:w-12 mb-2 md:mb-4" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 12h6m-3-3v6m2 5a9 9 0 11-4-0" />
-                </svg>
-                <h3 class="text-xl md:text-2xl font-semibold mb-1 md:mb-2">Misión</h3>
-                <p class="text-white text-center text-sm md:text-base px-1">
-                    Optimizar la presencia de nuestros clientes en redes sociales mediante estrategias de contenido,
-                    planificación y monitoreo constante.
-                </p>
-            </div>
-
-            <!-- Visión -->
-            <div
-                class="bg-green-500 text-white p-5 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:scale-105 animate-fadeIn delay-200 flex flex-col justify-center items-center text-center aspect-square">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-12 md:w-12 mb-2 md:mb-4" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                </svg>
-                <h3 class="text-xl md:text-2xl font-semibold mb-1 md:mb-2">Visión</h3>
-                <p class="text-white text-center text-sm md:text-base px-1">
-                    Ser la agencia líder en gestión de redes sociales, reconocida por ayudar a negocios a crecer y
-                    mantener una comunidad comprometida.
-                </p>
-            </div>
-
-            <!-- Objetivo -->
-            <div
-                class="bg-yellow-400 text-blue-900 p-5 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:scale-105 animate-fadeIn delay-400 flex flex-col justify-center items-center text-center aspect-square">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-12 md:w-12 mb-2 md:mb-4" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 8c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
-                </svg>
-                <h3 class="text-xl md:text-2xl font-semibold mb-1 md:mb-2">Objetivo</h3>
-                <p class="text-blue-900 text-center text-sm md:text-base px-1">
-                    Impulsar marcas a través de estrategias de redes sociales que incrementen su alcance, interacción y
-                    fidelidad de clientes.
-                </p>
-            </div>
-        </div>
-    </section>
-
-
-
-
-    <!-- Servicios -->
-    <section id="servicios" class="py-20 bg-gray-100 text-center">
-        <h2 class="text-4xl font-bold mb-12 animate-fadeIn">Nuestros Servicios Profesionales</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
-            <!-- Gestión Integral de Redes sociales -->
-            <div
-                class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition transform hover:scale-105 animate-fadeIn">
-                <img src="Imagen/gestion_redes.png" alt="Gestión de Redes" class="w-25 h-25 mx-auto mb-4">
-                <h3 class="text-2xl font-semibold mb-2">Gestión Integral de Redes sociales</h3>
-                <p class="text-gray-700 text-sm md:text-base">
-                    Diseñamos, planificamos y ejecutamos estrategias completas para tus redes sociales, incluyendo
-                    creación de contenido, calendario editorial y monitoreo constante para maximizar tu presencia
-                    digital.
-                </p>
-            </div>
-
-            <!-- Publicidad Digital Estratégica -->
-            <div
-                class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition transform hover:scale-105 animate-fadeIn delay-200">
-                <img src="Imagen/publicidad_digital.png" alt="Publicidad Digital" class="w-25 h-25 mx-auto mb-4">
-                <h3 class="text-2xl font-semibold mb-2">Publicidad Digital Estratégica</h3>
-                <p class="text-gray-700 text-sm md:text-base">
-                    Creamos campañas segmentadas y efectivas en Facebook, Instagram para aumentar tu
-                    visibilidad, generar leads de calidad y potenciar tu negocio en línea.
-                </p>
-            </div>
-
-            <!-- Análisis y Optimización -->
-            <div
-                class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition transform hover:scale-105 animate-fadeIn delay-400">
-                <img src="Imagen/analisis_reportes.png" alt="Análisis y Reportes" class="w-25 h-25 mx-auto mb-4">
-                <h3 class="text-2xl font-semibold mb-2">Análisis y Optimización</h3>
-                <p class="text-gray-700 text-sm md:text-base">
-                    Ofrecemos informes detallados y métricas clave de tus redes sociales, identificando oportunidades de
-                    crecimiento y optimizando las estrategias para alcanzar tus objetivos de manera eficiente.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Paquete de clivexa-->
-
-    <section id="paquetes" class="py-12 md:py-20 bg-white text-center px-4">
-        <h2 class="text-3xl md:text-4xl font-bold mb-8 md:mb-12 animate-fadeIn">🚀 Paquetes Clivexa</h2>
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8 max-w-6xl mx-auto">
-
-            <!-- Paquete de Inicio Clivexa-->
-            <div
-                class="bg-green-700 text-white p-4 md:p-6 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition flex flex-col items-center">
-                <h3 class="text-xl md:text-2xl font-semibold mb-3">🌱 Inicio Clivexa</h3>
-                <p class="mb-3 text-sm md:text-base">Para negocios que recién comienzan en redes.</p>
-
-                <ul class="list-disc list-inside text-left mb-4 space-y-1 text-sm">
-                    <li>8 publicaciones al mes (2 por semana)</li>
-                    <li>Fotos proporcionadas por el cliente</li>
-                    <li>Diseño básico con edición de imágenes y textos</li>
-                    <li>
-                        Publicación en Facebook e Instagram
-                        <span class="inline-flex space-x-1 ml-1">
-                            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd"
-                                    d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 24 24">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </span>
-                    </li>
-                    <li>Reporte básico de resultados</li>
-                    <li>Respuesta básica a mensajes y comentarios</li>
-                </ul>
-                <p class="text-xl font-bold mb-4">💰 $499.99 MXN / mes</p>
-                <a href="" target="_blank"
-                    class="bg-yellow-400 text-blue-900 px-6 py-2 rounded hover:bg-yellow-500 transition inline-block">
-                    Contratar
+            <!-- Iconos de redes sociales -->
+            <div class="flex justify-center gap-6 mt-4 text-2xl">
+                <a href="https://www.facebook.com/profile.php?id=61580817519322" target="_blank"
+                    class="text-white hover:text-clivexayellow transition-transform transform hover:scale-125">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/clivexa_/?next=%2F" target="_blank"
+                    class="text-white hover:text-clivexayellow transition-transform transform hover:scale-125">
+                    <i class="fab fa-instagram"></i>
                 </a>
             </div>
-
-            <!-- Paquete de Impulso Clivexa-->
-            <div
-                class="bg-blue-700 text-white p-4 md:p-6 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition flex flex-col items-center">
-                <h3 class="text-xl md:text-2xl font-semibold mb-3">🌟 Impulso Clivexa</h3>
-                <p class="mb-3 text-sm md:text-base">Para negocios que quieren mejorar su presencia visual y engagement.
-                </p>
-                <ul class="list-disc list-inside text-left mb-4 space-y-1 text-sm">
-                    <li>12 publicaciones al mes (3 por semana)</li>
-                    <li>Fotos proporcionadas por el cliente</li>
-                    <li>Diseño profesional con branding (colores y estilo definido)</li>
-                    <li>
-                        Publicación en Facebook e Instagram
-                        <span class="inline-flex space-x-1 ml-1">
-                            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd"
-                                    d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 24 24">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </span>
-                    </li>
-                    <li>4 reels o historias dinámicas al mes</li>
-                    <li>Reporte básico de resultados</li>
-                    <li>Respuesta activa a mensajes y comentarios</li>
-
-                </ul>
-                <p class="text-xl font-bold mb-4">💰 $899.99 MXN / mes</p>
-                <a href="" target="_blank"
-                    class="bg-yellow-400 text-blue-900 px-6 py-2 rounded hover:bg-yellow-500 transition inline-block">
-                    Contratar
-                </a>
-            </div>
-
-            <!-- Paquete de Expansión Clivexa-->
-            <div
-                class="bg-purple-800 text-white p-4 md:p-6 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition flex flex-col items-center">
-                <h3 class="text-xl md:text-2xl font-semibold mb-3">🔥 Expansión Clivexa</h3>
-                <p class="mb-3 text-sm md:text-base">Para negocios que buscan impacto profesional y posicionamiento.</p>
-                <ul class="list-disc list-inside text-left mb-4 space-y-1 text-sm">
-                    <li>16–20 publicaciones al mes (4–5 por semana)</li>
-                    <li>Sesión fotográfica profesional</li>
-                    <li>Plantillas personalizadas con el branding del negocio</li>
-                    <li>
-                        Publicación en Facebook e Instagram
-                        <span class="inline-flex space-x-1 ml-1">
-                            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd"
-                                    d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 24 24">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-
-                        </span>
-                    </li>
-                    <li>6 reels o historias creativas al mes</li>
-                    <li>Copywriting profesional para cada publicación</li>
-                    <li>Reporte mensual detallado con métricas y recomendaciones</li>
-                    <li>Respuesta activa a mensajes y comentarios</li>
-                </ul>
-                <p class="text-xl font-bold mb-4">💰 $1,499.99 MXN / mes</p>
-                <a href="" target="_blank"
-                    class="bg-yellow-400 text-blue-900 px-6 py-2 rounded hover:bg-yellow-500 transition inline-block">
-                    Contratar
-                </a>
-
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-6 text-center">
-        <p class="mb-4">© 2025 Clivexa. Todos los derechos reservados.</p>
-
-        <div class="flex justify-center space-x-6">
-            <!-- Facebook -->
-            <a href="https://www.facebook.com/profile.php?id=61580817519322" target="_blank"
-                class="hover:text-blue-500 transition">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.988H7.898v-2.89h2.54V9.845c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.196 2.238.196v2.465h-1.26c-1.243 0-1.63.772-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 17 22 12z" />
-                </svg>
-            </a>
-
-            <!-- Instagram -->
-            <a href="https://www.instagram.com/clivexa_/" target="_blank" class="hover:text-pink-500 transition">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M349.33 69.33H162.67C103.44 69.33 56 116.77 56 176v186.67c0 59.23 47.44 106.67 106.67 106.67h186.67c59.23 0 106.67-47.44 106.67-106.67V176c0-59.23-47.44-106.67-106.67-106.67zm72 292.67c0 39.7-32.3 72-72 72H162.67c-39.7 0-72-32.3-72-72V176c0-39.7 32.3-72 72-72h186.67c39.7 0 72 32.3 72 72v186z" />
-                    <path
-                        d="M256 164c-51.91 0-92 40.09-92 92s40.09 92 92 92 92-40.09 92-92-40.09-92-92-92zm0 152c-33.14 0-60-26.86-60-60s26.86-60 60-60 60 26.86 60 60-26.86 60-60 60z" />
-                    <circle cx="390" cy="122" r="26" />
-                </svg>
-            </a>
         </div>
     </footer>
 
-
-    <!-- Script para menú móvil -->
+    <!-- Script para mostrar el año actual -->
     <script>
-        const btn = document.getElementById('menu-btn');
-        const menu = document.getElementById('mobile-menu');
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+    <script>
+        // Mobile menu
+        const btn = document.getElementById('btn-mobile');
+        const mobile = document.getElementById('mobile-menu');
+        btn?.addEventListener('click', () => mobile.classList.toggle('hidden'));
+
+        // Copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            })
+        })
+    </script>
+
+    <!-- JS para EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // Inicializa EmailJS
+        emailjs.init("j2jbYJCk4YLZ6-Kx8");
+
+        // Envía el formulario
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // evita recargar la página
+
+            emailjs.sendForm('service_d9w70wc', 'template_qhk41w8', this)
+                .then(function () {
+                    // Notificación bonita de éxito
+                    Swal.fire({
+                        icon: 'success',
+                        title: '¡Mensaje enviado!',
+                        text: 'Tu mensaje se envió correctamente. Nos pondremos en contacto pronto.',
+                        confirmButtonColor: '#06205c',
+                        timer: 3000,
+                        timerProgressBar: true
+                    });
+                    document.getElementById('contact-form').reset(); // limpia el formulario
+                }, function (error) {
+                    // Notificación bonita de error
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error al enviar',
+                        text: 'Hubo un problema al enviar tu mensaje. Intenta nuevamente.',
+                        confirmButtonColor: '#d33'
+                    });
+                    console.error('Error al enviar el mensaje:', error);
+                });
         });
     </script>
+
 
 </body>
 
