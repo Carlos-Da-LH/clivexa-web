@@ -63,6 +63,29 @@
                 display: none
             }
         }
+
+        /* Burbuja flotante de WhatsApp */
+        #whatsapp-bubble {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            z-index: 100;
+            transition: transform 0.3s;
+        }
+
+        #whatsapp-bubble:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 
@@ -146,29 +169,50 @@
 
                     <!-- Service quick list with icons -->
                     <ul class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-md">
+                        <!-- 1 -->
                         <li class="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm">
-                            <span class="text-2xl">🎨</span>
-                            <span class="text-sm">Diseño de logotipos</span>
+                            <span class="text-2xl">✏️</span>
+                            <span class="text-sm">Diseño de Logotipos</span>
                         </li>
+                        <!-- 2 -->
                         <li class="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm">
                             <span class="text-2xl">🏷️</span>
                             <span class="text-sm">Branding</span>
                         </li>
+                        <!-- 3 -->
                         <li class="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm">
                             <span class="text-2xl">💻</span>
-                            <span class="text-sm">Web & Desarrollo</span>
+                            <span class="text-sm">Diseño y Creación Web</span>
                         </li>
+                        <!-- 4 -->
                         <li class="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm">
-                            <span class="text-2xl">📱</span>
-                            <span class="text-sm">Apps Móviles</span>
+                            <span class="text-2xl">🎨</span>
+                            <span class="text-sm">Diseño UX/UI</span>
                         </li>
+                        <!-- 5 -->
                         <li class="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm">
                             <span class="text-2xl">📢</span>
                             <span class="text-sm">Banners & Anuncios</span>
                         </li>
+                        <!-- 6 -->
                         <li class="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm">
                             <span class="text-2xl">💬</span>
                             <span class="text-sm">Gestión de RRSS</span>
+                        </li>
+                        <!-- 7 -->
+                        <li class="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm">
+                            <span class="text-2xl">📝</span>
+                            <span class="text-sm">Creación de Contenido</span>
+                        </li>
+                        <!-- 8 -->
+                        <li class="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm">
+                            <span class="text-2xl">🛠️</span>
+                            <span class="text-sm">Creación 3D</span>
+                        </li>
+                        <!-- 9 -->
+                        <li class="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm">
+                            <span class="text-2xl">🎉</span>
+                            <span class="text-sm">Organización e Identidad para Eventos</span>
                         </li>
                     </ul>
 
@@ -202,7 +246,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
                     <article class="p-6 rounded-2xl border hover:shadow-lg transition">
-                        <div class="text-3xl">🎨</div>
+                        <div class="text-3xl">✏️</div>
                         <h3 class="text-xl font-semibold mt-3">Diseño de logotipos</h3>
                         <p class="text-sm text-slate-600 mt-2">Creamos identidades únicas que reflejan la esencia de tu
                             marca.</p>
@@ -223,10 +267,12 @@
                     </article>
 
                     <article class="p-6 rounded-2xl border hover:shadow-lg transition">
-                        <div class="text-3xl">📱</div>
-                        <h3 class="text-xl font-semibold mt-3">Diseño de aplicaciones móviles</h3>
-                        <p class="text-sm text-slate-600 mt-2">Diseños de interfaces (UI/UX) atractivos y funcionales
-                            para experiencias móviles intuitivas.</p>
+                        <div class="text-3xl">🎨</div>
+                        <h3 class="text-xl font-semibold mt-3">Diseño UX/UI</h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            Diseño de interfaces atractivas y experiencias de usuario intuitivas para aplicaciones web y
+                            móviles.
+                        </p>
                     </article>
 
                     <article class="p-6 rounded-2xl border hover:shadow-lg transition">
@@ -242,6 +288,32 @@
                         <p class="text-sm text-slate-600 mt-2">Planificación, diseño y ejecución de contenido
                             profesional para redes sociales.</p>
                     </article>
+                    <!-- 7 -->
+                    <article class="p-6 rounded-2xl border hover:shadow-lg transition">
+                        <div class="text-3xl">📝</div>
+                        <h3 class="text-xl font-semibold mt-3">Creación de Contenido</h3>
+                        <p class="text-sm text-slate-600 mt-2">Producción de imágenes, videos, infografías y piezas
+                            creativas para marketing y comunicación digital.</p>
+                    </article>
+
+                    <!-- 8 -->
+                    <article class="p-6 rounded-2xl border hover:shadow-lg transition">
+                        <div class="text-3xl">🛠️</div>
+                        <h3 class="text-xl font-semibold mt-3">Creación 3D</h3>
+                        <p class="text-sm text-slate-600 mt-2"> Diseño y modelado 3D de objetos personalizados como
+                            llaveros, figuras, souvenirs y artículos físicos únicos para impresión 3D.
+                        </p>
+                    </article>
+
+                    <!-- 9 -->
+                    <article class="p-6 rounded-2xl border hover:shadow-lg transition">
+                        <div class="text-3xl">🎉</div>
+                        <h3 class="text-xl font-semibold mt-3">Organización e Identidad para Eventos</h3>
+                        <p class="text-sm text-slate-600 mt-2">Creación de la imagen completa del evento (logos,
+                            banners, invitaciones digitales y publicaciones) y planificación, coordinación y supervisión
+                            de ferias, talleres, conferencias o lanzamientos.</p>
+                    </article>
+
 
                 </div>
             </div>
@@ -316,46 +388,44 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-                    <!-- Diseño de logotipos -->
-                    <div class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
-                        <div class="text-3xl mb-2">🎨</div>
-                        <h3 class="text-xl font-semibold mt-2">Diseño de logotipos</h3>
+                    <!-- 1. Diseño de Logotipos -->
+                    <article class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
+                        <div class="text-3xl mb-2">✏️</div>
+                        <h3 class="text-xl font-semibold mt-2">Diseño de Logotipos</h3>
                         <p class="text-sm text-slate-600 mt-2">
                             Incluye una o dos propuestas de logotipo, hasta dos rondas de revisión y entrega en formatos
-                            estándar (PNG, JPG, PDF).
-                            No incluye estrategia de marca, manual de identidad ni elementos adicionales.
+                            estándar (PNG, JPG, PDF). No incluye estrategia de marca ni elementos adicionales.
                         </p>
-                        <p class="mt-4 font-bold">Desde $399 MXN</p>
+                        <p class="mt-4 font-bold">Desde $399 MXN (paquete básico)</p>
+                        <p class="text-xs text-slate-500 mt-1">Para paquetes avanzados con más propuestas y revisiones,
+                            contáctanos.</p>
                         <a href="#contacto"
                             class="mt-4 inline-block px-4 py-2 bg-clivexayellow rounded text-clivexablue font-semibold">
                             Contratar
                         </a>
-                    </div>
+                    </article>
 
-
-                    <!-- Diseño de branding -->
-                    <div class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
+                    <!-- 2. Diseño de Branding -->
+                    <article class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
                         <div class="text-3xl mb-2">🏷️</div>
-                        <h3 class="text-xl font-semibold mt-2">Diseño de branding</h3>
+                        <h3 class="text-xl font-semibold mt-2">Diseño de Branding</h3>
                         <p class="text-sm text-slate-600 mt-2">
                             Desarrollo completo de identidad visual: paleta de colores, tipografía, variantes de logo y
                             manual de uso.
                         </p>
-                        <p class="text-xs text-slate-500 mt-1">
-                            El precio varía según la complejidad y necesidades de tu marca.
-                        </p>
                         <p class="mt-4 font-bold">Precio personalizado según proyecto</p>
+                        <p class="text-xs text-slate-500 mt-1">Contáctanos para conocer paquetes con alcance completo.
+                        </p>
                         <a href="#contacto"
                             class="mt-4 inline-block px-4 py-2 bg-clivexayellow rounded text-clivexablue font-semibold">
                             Contratar
                         </a>
-                    </div>
+                    </article>
 
-
-                    <!-- Diseño y desarrollo web -->
-                    <div class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
+                    <!-- 3. Diseño y Creación Web -->
+                    <article class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
                         <div class="text-3xl mb-2">💻</div>
-                        <h3 class="text-xl font-semibold mt-2">Diseño y desarrollo web</h3>
+                        <h3 class="text-xl font-semibold mt-2">Diseño y Creación Web</h3>
                         <p class="text-sm text-slate-600 mt-2">
                             Páginas web modernas, responsivas y optimizadas para ofrecer una excelente experiencia de
                             usuario.
@@ -363,68 +433,125 @@
                         <p class="text-xs text-slate-500 mt-1">
                             Incluye hosting y 1 año de mantenimiento gratis.
                         </p>
-                        <p class="mt-4 font-bold">Desde $2,999 MXN</p>
+                        <p class="mt-4 font-bold">Desde $2,999 MXN (paquete básico)</p>
+                        <p class="text-xs text-slate-500 mt-1">Para paquetes más completos con funcionalidades
+                            avanzadas, contáctanos.</p>
                         <a href="#contacto"
                             class="mt-4 inline-block px-4 py-2 bg-clivexayellow rounded text-clivexablue font-semibold">
                             Contratar
                         </a>
-                    </div>
+                    </article>
 
-
-                    <!-- Diseño de aplicaciones móviles (personalizado) -->
-                    <div class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
-                        <div class="text-3xl mb-2">📱</div>
-                        <h3 class="text-xl font-semibold mt-2">Diseño de apps móviles</h3>
+                    <!-- 4. Diseño UX/UI -->
+                    <article class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
+                        <div class="text-3xl mb-2">🖥️</div>
+                        <h3 class="text-xl font-semibold mt-2">Diseño UX/UI</h3>
                         <p class="text-sm text-slate-600 mt-2">
-                            Interfaces atractivas y funcionales (UI/UX) para aplicaciones móviles. El precio depende de
-                            la complejidad y funcionalidades del proyecto.
-                        </p>
-                        <p class="text-xs text-slate-500 mt-1">
-                            Aplicaciones básicas: $30,000–$60,000 MXN. Intermedias: $60,000–$80,000 MXN. Avanzadas:
-                            desde $90,000 MXN.
+                            Diseño de interfaces atractivas y experiencias de usuario intuitivas para aplicaciones web y
+                            móviles.
                         </p>
                         <p class="mt-4 font-bold">Precio personalizado según proyecto</p>
+                        <p class="text-xs text-slate-500 mt-1">Contáctanos para paquetes completos con diseño avanzado y
+                            prototipos.</p>
                         <a href="#contacto"
                             class="mt-4 inline-block px-4 py-2 bg-clivexayellow rounded text-clivexablue font-semibold">
                             Contratar
                         </a>
-                    </div>
+                    </article>
 
-                    <!-- Creación de banners y anuncios web -->
-                    <div class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
+                    <!-- 5. Banners y Anuncios -->
+                    <article class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
                         <div class="text-3xl mb-2">📢</div>
-                        <h3 class="text-xl font-semibold mt-2">Banners y anuncios web</h3>
+                        <h3 class="text-xl font-semibold mt-2">Banners y Anuncios Web</h3>
                         <p class="text-sm text-slate-600 mt-2">
                             Creatividades visuales para campañas digitales enfocadas en aumentar visibilidad y
-                            conversiones.
-                            Un diseño gráfico simple, con texto e imágenes, en un formato específico (por ejemplo, un
-                            banner para Google Ads o una imagen para Facebook).
+                            conversiones. Diseños simples con texto e imágenes en formatos específicos.
                         </p>
-                        <p class="mt-4 font-bold">Desde $499 MXN</p>
+                        <p class="mt-4 font-bold">Desde $499 MXN (paquete básico)</p>
+                        <p class="text-xs text-slate-500 mt-1">Para paquetes con más diseños o animaciones, contáctanos.
+                        </p>
                         <a href="#contacto"
                             class="mt-4 inline-block px-4 py-2 bg-clivexayellow rounded text-clivexablue font-semibold">
                             Contratar
                         </a>
-                    </div>
+                    </article>
 
-
-                    <!-- Gestión de redes sociales -->
-                    <div class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
+                    <!-- 6. Gestión de Redes Sociales -->
+                    <article class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
                         <div class="text-3xl mb-2">💬</div>
-                        <h3 class="text-xl font-semibold mt-2">Gestión de redes sociales</h3>
+                        <h3 class="text-xl font-semibold mt-2">Gestión de Redes Sociales</h3>
                         <p class="text-sm text-slate-600 mt-2">
-                            16–20 publicaciones/mes, fotos y plantillas 📸, reels y stories 🎬, publicaciones en
-                            <i class="fab fa-instagram text-pink-500"></i> Instagram &
-                            <i class="fab fa-facebook text-blue-600"></i> Facebook, copywriting profesional y reporte
+                            16–20 publicaciones/mes, fotos y plantillas 📸, reels y stories 🎬, publicaciones en <i
+                                class="fab fa-instagram text-pink-500"></i> Instagram & <i
+                                class="fab fa-facebook text-blue-600"></i> Facebook, copywriting profesional y reporte
                             mensual.
                         </p>
-                        <p class="mt-4 font-bold">Desde $1,599 MXN / mes</p>
+                        <p class="mt-4 font-bold">Desde $1,599 MXN / mes (paquete básico)</p>
+                        <p class="text-xs text-slate-500 mt-1">Para paquetes con más publicaciones o campañas avanzadas,
+                            contáctanos.</p>
                         <a href="#contacto"
                             class="mt-4 inline-block px-4 py-2 bg-clivexayellow rounded text-clivexablue font-semibold">
                             Contratar
                         </a>
-                    </div>
+                    </article>
 
+                    <!-- 7. Creación de Contenido -->
+                    <article class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
+                        <div class="text-3xl mb-2">📝</div>
+                        <h3 class="text-xl font-semibold mt-2">Creación de Contenido</h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            Producción de imágenes, videos, infografías y piezas creativas para marketing y comunicación
+                            digital.
+                        </p>
+                        <p class="mt-4 font-bold">Desde $1,499 MXN / mes (paquete básico)</p>
+                        <p class="text-xs text-slate-500 mt-1">Para paquetes más completos o contenido personalizado,
+                            contáctanos.</p>
+                        <a href="#contacto"
+                            class="mt-4 inline-block px-4 py-2 bg-clivexayellow rounded text-clivexablue font-semibold">
+                            Contratar
+                        </a>
+                    </article>
+
+                    <!-- 8. Creación 3D -->
+                    <article class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
+                        <div class="text-3xl mb-2">🛠️</div>
+                        <h3 class="text-xl font-semibold mt-2">Creación 3D</h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            Creación de llaveros, figuras, souvenirs y artículos físicos personalizados mediante
+                            impresión 3D, ideales para regalos, promociones o eventos.
+                        </p>
+                        <p class="mt-4 font-bold">Desde $599 MXN (paquete básico)</p>
+                        <p class="text-xs text-slate-500 mt-1">
+                            Hasta 10 llaveros sencillos. Para más o diseños complejos, contáctanos.
+
+                        </p>
+                        <p class="text-xs text-slate-500 mt-1 font-semibold">
+                            Contáctanos para conocer paquetes completos y personalizados.
+                        </p>
+                        <a href="#contacto"
+                            class="mt-4 inline-block px-4 py-2 bg-clivexayellow rounded text-clivexablue font-semibold">
+                            Contratar
+                        </a>
+                    </article>
+
+
+                    <!-- 9. Organización e Identidad para Eventos -->
+                    <article class="p-6 rounded-2xl bg-white border shadow hover:scale-105 transition">
+                        <div class="text-3xl mb-2">🎉</div>
+                        <h3 class="text-xl font-semibold mt-2">Organización e Identidad para Eventos</h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            Creación de la imagen completa del evento (logos, banners, invitaciones digitales y
+                            publicaciones) y planificación, coordinación y supervisión de ferias, talleres, conferencias
+                            o lanzamientos.
+                        </p>
+                        <p class="mt-4 font-bold">Precio personalizado según proyecto</p>
+                        <p class="text-xs text-slate-500 mt-1">Contáctanos para conocer paquetes completos y
+                            personalizados.</p>
+                        <a href="#contacto"
+                            class="mt-4 inline-block px-4 py-2 bg-clivexayellow rounded text-clivexablue font-semibold">
+                            Contratar
+                        </a>
+                    </article>
 
                 </div>
             </div>
@@ -437,6 +564,9 @@
                     y te asesoramos.
                 </p>
             </div>
+        </section>
+        </div>
+        </div>
         </section>
 
 
@@ -473,10 +603,14 @@
                         <select name="servicio" class="w-full px-4 py-2 border rounded" required>
                             <option>Diseño de logotipos</option>
                             <option>Branding</option>
-                            <option>Diseño y desarrollo web</option>
-                            <option>Diseño de apps móviles</option>
+                            <option>Diseño y Creación Web</option>
+                            <option>Diseño UX/UI</option>
                             <option>Banners y anuncios</option>
                             <option>Gestión de redes sociales</option>
+                            <option>Creación de Contenido</option>
+                            <option>Creación 3D</option>
+                            <option>Organización e Identidad para Eventos</option>
+
                         </select>
                     </div>
                     <div>
@@ -517,6 +651,10 @@
             </div>
         </div>
     </footer>
+    <!-- Burbuja flotante WhatsApp -->
+    <a href="https://wa.me/529381520455" target="_blank" id="whatsapp-bubble" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
 
     <!-- Script para mostrar el año actual -->
     <script>
